@@ -1,0 +1,11 @@
+Task: 2ac62f09-2e24-4efd-bd40-62368c77dbf2/task-137
+Status: DONE
+Log: C:\Users\addal\.gemini\antigravity\brain\2ac62f09-2e24-4efd-bd40-62368c77dbf2\.system_generated\tasks\task-137.log
+Log output:
+
+> securechain-frontend@1.0.0 build
+> tsc && vite build
+
+src/pages/ProjectDetail.tsx(265,29): error TS2580: Cannot find name 'require'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`.
+
+Last progress: 9s ago

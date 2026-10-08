@@ -1,0 +1,13 @@
+The following changes were made by the replace_file_content tool to: c:\Users\addal\Documents\antigravity\focused-bell\frontend\src\pages\ProjectDetail.tsx. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -262,7 +262,6 @@
+ function DepsTab({ deps, projectId, onRefresh }: { deps: Dependency[]; projectId: number; onRefresh: () => void }) {
+   const [showAdd, setShowAdd] = useState(false)
+   const [form, setForm] = useState({ name: '', version: '', ecosystem: 'npm', is_direct: true, is_dev: false, license: '' })
+-  const { addDependency } = require('../api/client')
+ 
+   const handle = async (e: React.FormEvent) => {
+     e.preventDefault()
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

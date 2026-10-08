@@ -1,0 +1,19 @@
+You have 2 background task(s) currently running:
+{
+  "taskId":  "2ac62f09-2e24-4efd-bd40-62368c77dbf2/task-112",
+  "toolName":  "run_command",
+  "toolSummary":  "Pip install backend requirements",
+  "description":  "python -m pip install -r requirements.txt",
+  "startTime":  "2026-10-08T05:06:09.850385800Z",
+  "stepIndex":  112,
+  "logUri":  "file:///C:/Users/addal/.gemini/antigravity/brain/2ac62f09-2e24-4efd-bd40-62368c77dbf2/.system_generated/tasks/task-112.log"
+}
+{
+  "taskId":  "2ac62f09-2e24-4efd-bd40-62368c77dbf2/task-114",
+  "toolName":  "run_command",
+  "toolSummary":  "NPM install frontend dependencies",
+  "description":  "npm install",
+  "startTime":  "2026-10-08T05:06:36.194109800Z",
+  "stepIndex":  114,
+  "logUri":  "file:///C:/Users/addal/.gemini/antigravity/brain/2ac62f09-2e24-4efd-bd40-62368c77dbf2/.system_generated/tasks/task-114.log"
+}

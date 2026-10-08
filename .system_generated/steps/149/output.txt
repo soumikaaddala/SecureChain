@@ -1,0 +1,11 @@
+
+The command exited with code 1.
+Output:
+
+> securechain-frontend@1.0.0 build
+> tsc && vite build
+
+src/pages/ProjectDetail.tsx(268,36): error TS2345: Argument of type '{ name: string; version: string; ecosystem: string; is_direct: boolean; is_dev: boolean; license: string; }' is not assignable to parameter of type 'Partial<Dependency>'.
+  Types of property 'ecosystem' are incompatible.
+    Type 'string' is not assignable to type 'Ecosystem | undefined'.
+

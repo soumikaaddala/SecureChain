@@ -1,0 +1,10 @@
+
+The command exited with code 0.
+Output:
+
+Name LastWriteTime      
+---- -------------      
+.git 08-10-2026 09:57:41
+
+
+
