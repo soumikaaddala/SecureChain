@@ -1,0 +1,26 @@
+Task: 2ac62f09-2e24-4efd-bd40-62368c77dbf2/task-393
+Status: DONE
+Log: C:\Users\addal\.gemini\antigravity\brain\2ac62f09-2e24-4efd-bd40-62368c77dbf2\.system_generated\tasks\task-393.log
+Log output:
+<truncated 38 lines>
+ogram Files\Docker\cli-plugins\docker-model.exe
+  offload: Docker Offload (Docker Inc.)
+    Version:  v0.5.94
+    Path:     C:\Program Files\Docker\cli-plugins\docker-offload.exe
+  pass: Docker Pass Secrets Manager Plugin (beta) (Docker Inc.)
+    Version:  v0.0.29
+    Path:     C:\Program Files\Docker\cli-plugins\docker-pass.exe
+  sandbox: Docker Sandbox (Docker Inc.)
+    Version:  v0.12.0
+    Path:     C:\Program Files\Docker\cli-plugins\docker-sandbox.exe
+  sbom: View the packaged-based Software Bill Of Materials (SBOM) for an image (Anchore Inc.)
+    Version:  0.7.0
+    Path:     C:\Program Files\Docker\cli-plugins\docker-sbom.exe
+  scout: Docker Scout (Docker Inc.)
+    Version:  v1.21.0
+    Path:     C:\Program Files\Docker\cli-plugins\docker-scout.exe
+
+Server:
+failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
+
+Last progress: 5s ago

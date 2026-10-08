@@ -1,0 +1,13 @@
+
+The command exited with code 1.
+Output:
+
+> securechain-frontend@1.0.0 build
+> tsc && vite build
+
+src/App.tsx(1,10): error TS2305: Module '"react"' has no exported member 'Routes'.
+src/App.tsx(1,18): error TS2305: Module '"react"' has no exported member 'Route'.
+src/App.tsx(1,25): error TS2305: Module '"react"' has no exported member 'Navigate'.
+src/context/AuthContext.tsx(13,39): error TS2304: Cannot find name 'str'.
+src/context/AuthContext.tsx(35,52): error TS2304: Cannot find name 'str'.
+

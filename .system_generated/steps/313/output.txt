@@ -1,0 +1,15 @@
+Task: 2ac62f09-2e24-4efd-bd40-62368c77dbf2/task-311
+Status: DONE
+Log: C:\Users\addal\.gemini\antigravity\brain\2ac62f09-2e24-4efd-bd40-62368c77dbf2\.system_generated\tasks\task-311.log
+Log output:
+
+> securechain-frontend@1.0.0 build
+> tsc && vite build
+
+src/App.tsx(1,10): error TS2305: Module '"react"' has no exported member 'Routes'.
+src/App.tsx(1,18): error TS2305: Module '"react"' has no exported member 'Route'.
+src/App.tsx(1,25): error TS2305: Module '"react"' has no exported member 'Navigate'.
+src/context/AuthContext.tsx(13,39): error TS2304: Cannot find name 'str'.
+src/context/AuthContext.tsx(35,52): error TS2304: Cannot find name 'str'.
+
+Last progress: 6s ago

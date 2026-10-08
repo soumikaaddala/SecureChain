@@ -1,0 +1,59 @@
+
+The command exited with code 1.
+Output:
+Traceback (most recent call last):
+  File "C:\Users\addal\AppData\Local\Programs\Python\Python312\Lib\site-packages\pydantic\networks.py", line 419, in import_email_validator
+    import email_validator
+ModuleNotFoundError: No module named 'email_validator'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\addal\Documents\antigravity\focused-bell\backend\main.py", line 19, in <module>
+    from app.api.auth import router as auth_router
+  File "C:\Users\addal\Documents\antigravity\focused-bell\backend\app\api\auth.py", line 26, in <module>
+    class UserRegister(BaseModel):
+  File "C:\Users\addal\AppData\Local\Programs\Python\Python312\Lib\site-packages\pydantic\_internal\_model_construction.py", line 224, in __new__
+    complete_model_class(
+  File "C:\Users\addal\AppData\Local\Programs\Python\Python312\Lib\site-packages\pydantic\_internal\_model_construction.py", line 577, in complete_model_class
+    schema = cls.__get_pydantic_core_schema__(cls, handler)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\addal\AppData\Local\Programs\Python\Python312\Lib\site-packages\pydantic\main.py", line 671, in __get_pydantic_core_schema__
+    return handler(source)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\addal\AppData\Local\Programs\Python\Python312\Lib\site-packages\pydantic\_internal\_schema_generation_shared.py", line 83, in __call__
+    schema = self._handler(source_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\addal\AppData\Local\Programs\Python\Python312\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 655, in generate_schema
+    schema = self._generate_schema_inner(obj)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\addal\AppData\Local\Programs\Python\Python312\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 924, in _generate_schema_inner
+    return self._model_schema(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\addal\AppData\Local\Programs\Python\Python312\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 739, in _model_schema
+    {k: self._generate_md_field_schema(k, v, decorators) for k, v in fields.items()},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\addal\AppData\Local\Programs\Python\Python312\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1115, in _generate_md_field_schema
+    common_field = self._common_field_schema(name, field_info, decorators)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\addal\AppData\Local\Programs\Python\Python312\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1308, in _common_field_schema
+    schema = self._apply_annotations(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\addal\AppData\Local\Programs\Python\Python312\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 2107, in _apply_annotations
+    schema = get_inner_schema(source_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\addal\AppData\Local\Programs\Python\Python312\Lib\site-packages\pydantic\_internal\_schema_generation_shared.py", line 83, in __call__
+    schema = self._handler(source_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\addal\AppData\Local\Programs\Python\Python312\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 2086, in inner_handler
+    from_property = self._generate_schema_from_property(obj, source_type)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\addal\AppData\Local\Programs\Python\Python312\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 821, in _generate_schema_from_property
+    schema = get_schema(
+             ^^^^^^^^^^^
+  File "C:\Users\addal\AppData\Local\Programs\Python\Python312\Lib\site-packages\pydantic\networks.py", line 459, in __get_pydantic_core_schema__
+    import_email_validator()
+  File "C:\Users\addal\AppData\Local\Programs\Python\Python312\Lib\site-packages\pydantic\networks.py", line 421, in import_email_validator
+    raise ImportError('email-validator is not installed, run `pip install pydantic[email]`') from e
+ImportError: email-validator is not installed, run `pip install pydantic[email]`
+

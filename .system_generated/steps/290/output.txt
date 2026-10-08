@@ -1,0 +1,14 @@
+
+Encountered error in step execution: context canceled
+Output:
+
+> securechain-frontend@1.0.0 dev
+> vite
+
+Port 5173 is in use, trying another one...
+
+  VITE v5.4.21  ready in 1045 ms
+
+  ➜  Local:   http://localhost:5174/
+  ➜  Network: use --host to expose
+

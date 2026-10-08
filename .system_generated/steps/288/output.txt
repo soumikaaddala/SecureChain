@@ -1,0 +1,12 @@
+Task: 2ac62f09-2e24-4efd-bd40-62368c77dbf2/task-286
+Status: RUNNING
+Log: C:\Users\addal\.gemini\antigravity\brain\2ac62f09-2e24-4efd-bd40-62368c77dbf2\.system_generated\tasks\task-286.log
+Log output:
+INFO:     Will watch for changes in these directories: ['C:\\Users\\addal\\Documents\\antigravity\\focused-bell\\backend']
+INFO:     Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+INFO:     Started reloader process [16588] using WatchFiles
+INFO:     Started server process [8452]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+
+Last progress: 7s ago

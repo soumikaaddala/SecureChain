@@ -1,0 +1,189 @@
+
+The command exited with code 1.
+Output:
+<truncated 256 lines>
+  --> app\api\projects.py:77:48
+   |
+76 | @router.get("/{project_id}", response_model=ProjectSummary)
+77 | def get_project(project_id: int, db: Session = Depends(get_db)):
+   |                                                ^^^^^^^^^^^^^^^
+78 |     p = _get_or_404(project_id, db)
+79 |     total_deps = db.query(Dependency).filter(Dependency.project_id == p.id).count()
+   |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+  --> app\api\projects.py:96:75
+   |
+95 | @router.patch("/{project_id}", response_model=ProjectOut)
+96 | def update_project(project_id: int, payload: ProjectUpdate, db: Session = Depends(get_db)):
+   |                                                                           ^^^^^^^^^^^^^^^
+97 |     p = _get_or_404(project_id, db)
+98 |     for field, value in payload.model_dump(exclude_none=True).items():
+   |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> app\api\projects.py:106:51
+    |
+105 | @router.delete("/{project_id}", status_code=status.HTTP_204_NO_CONTENT)
+106 | def delete_project(project_id: int, db: Session = Depends(get_db)):
+    |                                                   ^^^^^^^^^^^^^^^
+107 |     p = _get_or_404(project_id, db)
+108 |     db.delete(p)
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+  --> app\api\scans.py:41:19
+   |
+39 |     skip: int = 0,
+40 |     limit: int = 20,
+41 |     db: Session = Depends(get_db),
+   |                   ^^^^^^^^^^^^^^^
+42 | ):
+43 |     _get_project(project_id, db)
+   |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+  --> app\api\scans.py:63:19
+   |
+61 |     payload: ScanCreate,
+62 |     background_tasks: BackgroundTasks,
+63 |     db: Session = Depends(get_db),
+   |                   ^^^^^^^^^^^^^^^
+64 | ):
+65 |     _get_project(project_id, db)
+   |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+  --> app\api\scans.py:82:59
+   |
+81 | @router.get("/projects/{project_id}/scans/{scan_id}", response_model=ScanOut)
+82 | def get_scan(project_id: int, scan_id: int, db: Session = Depends(get_db)):
+   |                                                           ^^^^^^^^^^^^^^^
+83 |     return _get_scan(project_id, scan_id, db)
+   |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> app\api\scans.py:98:19
+    |
+ 96 |     skip: int = 0,
+ 97 |     limit: int = 100,
+ 98 |     db: Session = Depends(get_db),
+    |                   ^^^^^^^^^^^^^^^
+ 99 | ):
+100 |     _get_scan(project_id, scan_id, db)
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> app\api\scans.py:110:48
+    |
+109 | @router.get("/findings/{finding_id}", response_model=FindingOut)
+110 | def get_finding(finding_id: int, db: Session = Depends(get_db)):
+    |                                                ^^^^^^^^^^^^^^^
+111 |     f = db.query(VulnerabilityFinding).filter(VulnerabilityFinding.id == finding_id).first()
+112 |     if not f:
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> app\api\scans.py:122:54
+    |
+121 | @router.get("/findings/{finding_id}/remediations", response_model=list[RemediationOut])
+122 | def list_remediations(finding_id: int, db: Session = Depends(get_db)):
+    |                                                      ^^^^^^^^^^^^^^^
+123 |     return db.query(Remediation).filter(Remediation.finding_id == finding_id).all()
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> app\api\scans.py:132:64
+    |
+130 | )
+131 | def create_remediation(
+132 |     finding_id: int, payload: RemediationCreate, db: Session = Depends(get_db)
+    |                                                                ^^^^^^^^^^^^^^^
+133 | ):
+134 |     f = db.query(VulnerabilityFinding).filter(VulnerabilityFinding.id == finding_id).first()
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> app\api\scans.py:146:60
+    |
+144 | @router.patch("/remediations/{rem_id}", response_model=RemediationOut)
+145 | def update_remediation(
+146 |     rem_id: int, payload: RemediationUpdate, db: Session = Depends(get_db)
+    |                                                            ^^^^^^^^^^^^^^^
+147 | ):
+148 |     rem = db.query(Remediation).filter(Remediation.id == rem_id).first()
+    |
+
+DTZ003 `datetime.datetime.utcnow()` used
+   --> app\api\scans.py:155:27
+    |
+153 |     if payload.status in (RemediationStatus.RESOLVED, RemediationStatus.WONT_FIX,
+154 |                           RemediationStatus.FALSE_POSITIVE):
+155 |         rem.resolved_at = datetime.utcnow()
+    |                           ^^^^^^^^^^^^^^^^^
+156 |     db.commit()
+157 |     db.refresh(rem)
+    |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> app\api\scans.py:166:52
+    |
+165 | @router.get("/projects/{project_id}/report", response_model=RiskReport)
+166 | def get_risk_report(project_id: int, db: Session = Depends(get_db)):
+    |                                                    ^^^^^^^^^^^^^^^
+167 |     project = _get_project(project_id, db)
+168 |     last_scan = (
+    |
+
+DTZ003 `datetime.datetime.utcnow()` used
+   --> app\api\scans.py:213:22
+    |
+211 |         project_id=project_id,
+212 |         project_name=project.name,
+213 |         generated_at=datetime.utcnow(),
+    |                      ^^^^^^^^^^^^^^^^^
+214 |         risk_score=last_scan.risk_score,
+215 |         total_dependencies=len(deps),
+    |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+   --> app\core\scanner.py:190:33
+    |
+188 |             scan.sbom = self._generate_sbom(scan.project_id, deps)
+189 |             scan.status = ScanStatus.COMPLETED
+190 |             scan.completed_at = datetime.utcnow()
+    |                                 ^^^^^^^^^^^^^^^^^
+191 |
+192 |         except Exception as exc:
+    |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+TRY201 Use `raise` without specifying exception name
+   --> app\core\scanner.py:195:19
+    |
+193 |             scan.status = ScanStatus.FAILED
+194 |             self.db.commit()
+195 |             raise exc
+    |                   ^^^
+196 |
+197 |         self.db.commit()
+    |
+help: Remove exception name
+
+DTZ003 `datetime.datetime.utcnow()` used
+   --> app\core\scanner.py:546:30
+    |
+544 |             "version": 1,
+545 |             "metadata": {
+546 |                 "timestamp": datetime.utcnow().isoformat(),
+    |                              ^^^^^^^^^^^^^^^^^
+547 |                 "component": {"type": "application", "bom-ref": f"project-{project_id}"},
+548 |             },
+    |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+Found 233 errors (192 fixed, 41 remaining).
+No fixes available (1 hidden fix can be enabled with the `--unsafe-fixes` option).
+

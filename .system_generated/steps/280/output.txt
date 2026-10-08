@@ -1,0 +1,73 @@
+The following changes were made by the replace_file_content tool to: c:\Users\addal\Documents\antigravity\focused-bell\backend\app\api\auth.py. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -15,35 +15,23 @@
+ ALGORITHM = "HS256"
+ ACCESS_TOKEN_EXPIRE_MINUTES = 60
+ 
+-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/auth/login")
+-
+-router = APIRouter(prefix="/auth", tags=["Authentication & Authorization"])
+-
+-
+-# ── Schemas with Strict Input Validation ────────
+-
+-class UserRegister(BaseModel):
+-    username: str = Field(..., min_length=3, max_length=50, pattern=r"^[a-zA-Z0-9_-]+$")
+-    email: EmailStr
+-    password: str = Field(..., min_length=8, max_length=128)
+-    role: str = Field("Student", pattern=r"^(Student|Faculty|Administrator|SecurityAnalyst)$")
+-
+-
+-class UserOut(BaseModel):
+-    username: str
+-    email: EmailStr
+-    role: str
+-    is_active: bool = True
+-
+-
+-class Token(BaseModel):
+-    access_token: str
+-    token_type: str = "bearer"
+-    role: str
+-
+-
+-# ── In-Memory Security Store (Demo) ────────────
++import hashlib
++import os
++
++def hash_password(password: str) -> str:
++    salt = os.urandom(16)
++    pwd_hash = hashlib.pbkdf2_hmac("sha256", password.encode("utf-8"), salt, 100000)
++    return f"{salt.hex()}:${pwd_hash.hex()}"
++
++def verify_password(plain_password: str, hashed_password: str) -> bool:
++    try:
++        salt_hex, hash_hex = hashed_password.split("$")
++        salt = bytes.fromhex(salt_hex)
++        expected_hash = bytes.fromhex(hash_hex)
++        new_hash = hashlib.pbkdf2_hmac("sha256", plain_password.encode("utf-8"), salt, 100000)
++        return hashlib.compare_digest(new_hash, expected_hash)
++    except Exception:
++        return False
+ 
+ FAKE_USERS_DB = {
+     "admin": {
+@@ -50,5 +50,5 @@
+         "email": "admin@securechain.edu",
+-        "hashed_password": pwd_context.hash("AdminPass123!"),
++        "hashed_password": hash_password("AdminPass123!"),
+         "role": "Administrator",
+         "is_active": True,
+     },
+@@ -55,6 +55,6 @@
+         "username": "student_dev",
+         "email": "student@securechain.edu",
+-        "hashed_password": pwd_context.hash("StudentPass123!"),
++        "hashed_password": hash_password("StudentPass123!"),
+         "role": "Student",
+         "is_active": True,
+     }
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

@@ -1,0 +1,23 @@
+The following changes were made by the replace_file_content tool to: c:\Users\addal\Documents\antigravity\focused-bell\frontend\src\context\AuthContext.tsx. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -10,7 +10,7 @@
+ 
+ interface AuthContextType {
+   user: User | null
+-  login: (username: string, password: str) => Promise<User>
++  login: (username: string, password: string) => Promise<User>
+   logout: () => void
+   isAuthenticated: boolean
+ }
+@@ -31,7 +31,7 @@
+     return null
+   })
+ 
+-  const login = async (username: string, password: str): Promise<User> => {
++  const login = async (username: string, password: string): Promise<User> => {
+     const formData = new FormData()
+     formData.append('username', username)
+     formData.append('password', password)
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

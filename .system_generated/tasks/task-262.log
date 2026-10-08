@@ -1,0 +1,15 @@
+
+> securechain-frontend@1.0.0 dev
+> vite
+
+
+  VITE v5.4.21  ready in 3646 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+3:37:24 pm [vite] http proxy error: /api/v1/dashboard
+Error: connect ECONNREFUSED 127.0.0.1:8001
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+3:37:24 pm [vite] http proxy error: /api/v1/dashboard
+Error: connect ECONNREFUSED 127.0.0.1:8001
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)

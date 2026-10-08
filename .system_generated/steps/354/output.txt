@@ -1,0 +1,275 @@
+
+The command exited with code 1.
+Output:
+<truncated 1 lines>
+282 |     recommendations: List[str]
+    |
+help: Replace with `dict`
+    |
+280 |     remediation_summary: Dict[str, int]
+    -     sbom: Optional[Dict[str, Any]]
+281 +     sbom: Optional[dict[str, Any]]
+282 |     recommendations: List[str]
+    |
+
+UP006 [*] Use `list` instead of `List` for type annotation
+   --> app\schemas\schemas.py:282:22
+    |
+280 |     remediation_summary: Dict[str, int]
+281 |     sbom: Optional[Dict[str, Any]]
+282 |     recommendations: List[str]
+    |                      ^^^^
+help: Replace with `list`
+    |
+281 |     sbom: Optional[Dict[str, Any]]
+    -     recommendations: List[str]
+282 +     recommendations: list[str]
+283 |
+    |
+
+UP045 [*] Use `X | None` for type annotations
+   --> app\schemas\schemas.py:294:13
+    |
+292 |     threat_type: ThreatType
+293 |     severity: SeverityLevel
+294 |     cve_id: Optional[str] = None
+    |             ^^^^^^^^^^^^^
+295 |     affected_versions: Optional[List[str]] = None
+296 |     description: Optional[str] = None
+    |
+help: Convert to `X | None`
+    |
+293 |     severity: SeverityLevel
+    -     cve_id: Optional[str] = None
+294 +     cve_id: str | None = None
+295 |     affected_versions: Optional[List[str]] = None
+    |
+
+UP045 [*] Use `X | None` for type annotations
+   --> app\schemas\schemas.py:295:24
+    |
+293 |     severity: SeverityLevel
+294 |     cve_id: Optional[str] = None
+295 |     affected_versions: Optional[List[str]] = None
+    |                        ^^^^^^^^^^^^^^^^^^^
+296 |     description: Optional[str] = None
+297 |     source: Optional[str] = None
+    |
+help: Convert to `X | None`
+    |
+294 |     cve_id: Optional[str] = None
+    -     affected_versions: Optional[List[str]] = None
+295 +     affected_versions: List[str] | None = None
+296 |     description: Optional[str] = None
+    |
+
+UP006 [*] Use `list` instead of `List` for type annotation
+   --> app\schemas\schemas.py:295:33
+    |
+293 |     severity: SeverityLevel
+294 |     cve_id: Optional[str] = None
+295 |     affected_versions: Optional[List[str]] = None
+    |                                 ^^^^
+296 |     description: Optional[str] = None
+297 |     source: Optional[str] = None
+    |
+help: Replace with `list`
+    |
+294 |     cve_id: Optional[str] = None
+    -     affected_versions: Optional[List[str]] = None
+295 +     affected_versions: Optional[list[str]] = None
+296 |     description: Optional[str] = None
+    |
+
+UP045 [*] Use `X | None` for type annotations
+   --> app\schemas\schemas.py:296:18
+    |
+294 |     cve_id: Optional[str] = None
+295 |     affected_versions: Optional[List[str]] = None
+296 |     description: Optional[str] = None
+    |                  ^^^^^^^^^^^^^
+297 |     source: Optional[str] = None
+    |
+help: Convert to `X | None`
+    |
+295 |     affected_versions: Optional[List[str]] = None
+    -     description: Optional[str] = None
+296 +     description: str | None = None
+297 |     source: Optional[str] = None
+    |
+
+UP045 [*] Use `X | None` for type annotations
+   --> app\schemas\schemas.py:297:13
+    |
+295 |     affected_versions: Optional[List[str]] = None
+296 |     description: Optional[str] = None
+297 |     source: Optional[str] = None
+    |             ^^^^^^^^^^^^^
+help: Convert to `X | None`
+    |
+296 |     description: Optional[str] = None
+    -     source: Optional[str] = None
+297 +     source: str | None = None
+298 |
+    |
+
+UP045 [*] Use `X | None` for type annotations
+   --> app\schemas\schemas.py:306:13
+    |
+304 |     threat_type: ThreatType
+305 |     severity: SeverityLevel
+306 |     cve_id: Optional[str]
+    |             ^^^^^^^^^^^^^
+307 |     affected_versions: Optional[List[str]]
+308 |     description: Optional[str]
+    |
+help: Convert to `X | None`
+    |
+305 |     severity: SeverityLevel
+    -     cve_id: Optional[str]
+306 +     cve_id: str | None
+307 |     affected_versions: Optional[List[str]]
+    |
+
+UP045 [*] Use `X | None` for type annotations
+   --> app\schemas\schemas.py:307:24
+    |
+305 |     severity: SeverityLevel
+306 |     cve_id: Optional[str]
+307 |     affected_versions: Optional[List[str]]
+    |                        ^^^^^^^^^^^^^^^^^^^
+308 |     description: Optional[str]
+309 |     source: Optional[str]
+    |
+help: Convert to `X | None`
+    |
+306 |     cve_id: Optional[str]
+    -     affected_versions: Optional[List[str]]
+307 +     affected_versions: List[str] | None
+308 |     description: Optional[str]
+    |
+
+UP006 [*] Use `list` instead of `List` for type annotation
+   --> app\schemas\schemas.py:307:33
+    |
+305 |     severity: SeverityLevel
+306 |     cve_id: Optional[str]
+307 |     affected_versions: Optional[List[str]]
+    |                                 ^^^^
+308 |     description: Optional[str]
+309 |     source: Optional[str]
+    |
+help: Replace with `list`
+    |
+306 |     cve_id: Optional[str]
+    -     affected_versions: Optional[List[str]]
+307 +     affected_versions: Optional[list[str]]
+308 |     description: Optional[str]
+    |
+
+UP045 [*] Use `X | None` for type annotations
+   --> app\schemas\schemas.py:308:18
+    |
+306 |     cve_id: Optional[str]
+307 |     affected_versions: Optional[List[str]]
+308 |     description: Optional[str]
+    |                  ^^^^^^^^^^^^^
+309 |     source: Optional[str]
+310 |     is_active: bool
+    |
+help: Convert to `X | None`
+    |
+307 |     affected_versions: Optional[List[str]]
+    -     description: Optional[str]
+308 +     description: str | None
+309 |     source: Optional[str]
+    |
+
+UP045 [*] Use `X | None` for type annotations
+   --> app\schemas\schemas.py:309:13
+    |
+307 |     affected_versions: Optional[List[str]]
+308 |     description: Optional[str]
+309 |     source: Optional[str]
+    |             ^^^^^^^^^^^^^
+310 |     is_active: bool
+311 |     created_at: datetime
+    |
+help: Convert to `X | None`
+    |
+308 |     description: Optional[str]
+    -     source: Optional[str]
+309 +     source: str | None
+310 |     is_active: bool
+    |
+
+UP006 [*] Use `list` instead of `List` for type annotation
+   --> app\schemas\schemas.py:330:19
+    |
+328 |     resolved_remediations: int
+329 |     avg_risk_score: float
+330 |     recent_scans: List[ScanOut]
+    |                   ^^^^
+331 |     severity_distribution: Dict[str, int]
+332 |     threat_type_distribution: Dict[str, int]
+    |
+help: Replace with `list`
+    |
+329 |     avg_risk_score: float
+    -     recent_scans: List[ScanOut]
+330 +     recent_scans: list[ScanOut]
+331 |     severity_distribution: Dict[str, int]
+    |
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+   --> app\schemas\schemas.py:331:28
+    |
+329 |     avg_risk_score: float
+330 |     recent_scans: List[ScanOut]
+331 |     severity_distribution: Dict[str, int]
+    |                            ^^^^
+332 |     threat_type_distribution: Dict[str, int]
+333 |     ecosystem_distribution: Dict[str, int]
+    |
+help: Replace with `dict`
+    |
+330 |     recent_scans: List[ScanOut]
+    -     severity_distribution: Dict[str, int]
+331 +     severity_distribution: dict[str, int]
+332 |     threat_type_distribution: Dict[str, int]
+    |
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+   --> app\schemas\schemas.py:332:31
+    |
+330 |     recent_scans: List[ScanOut]
+331 |     severity_distribution: Dict[str, int]
+332 |     threat_type_distribution: Dict[str, int]
+    |                               ^^^^
+333 |     ecosystem_distribution: Dict[str, int]
+    |
+help: Replace with `dict`
+    |
+331 |     severity_distribution: Dict[str, int]
+    -     threat_type_distribution: Dict[str, int]
+332 +     threat_type_distribution: dict[str, int]
+333 |     ecosystem_distribution: Dict[str, int]
+    |
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+   --> app\schemas\schemas.py:333:29
+    |
+331 |     severity_distribution: Dict[str, int]
+332 |     threat_type_distribution: Dict[str, int]
+333 |     ecosystem_distribution: Dict[str, int]
+    |                             ^^^^
+help: Replace with `dict`
+    |
+332 |     threat_type_distribution: Dict[str, int]
+    -     ecosystem_distribution: Dict[str, int]
+333 +     ecosystem_distribution: dict[str, int]
+    |
+
+Found 227 errors.
+[*] 176 fixable with the `--fix` option (1 hidden fix can be enabled with the `--unsafe-fixes` option).
+

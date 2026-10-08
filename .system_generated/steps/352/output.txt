@@ -1,0 +1,56 @@
+
+The command exited with code 1.
+Output:
+[main]	INFO	profile include tests: None
+[main]	INFO	profile exclude tests: None
+[main]	INFO	cli include tests: None
+[main]	INFO	cli exclude tests: None
+[main]	INFO	running on Python 3.12.0
+Run started:2026-10-08 10:25:25.137210+00:00
+
+Test results:
+>> Issue: [B106:hardcoded_password_funcarg] Possible hardcoded password: 'bearer'
+   Severity: Low   Confidence: Medium
+   CWE: CWE-259 (https://cwe.mitre.org/data/definitions/259.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b106_hardcoded_password_funcarg.html
+   Location: app/api\auth.py:174:11
+173	        access_token=access_token,
+174	        token_type="bearer",
+175	        role=user["role"],
+176	        username=user["username"],
+177	        email=user["email"]
+178	    )
+179	
+180	
+181	@router.get("/me", response_model=UserOut)
+
+--------------------------------------------------
+>> Issue: [B105:hardcoded_password_string] Possible hardcoded password: 'secret_leakage'
+   Severity: Low   Confidence: Medium
+   CWE: CWE-259 (https://cwe.mitre.org/data/definitions/259.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b105_hardcoded_password_string.html
+   Location: app/db\models.py:50:21
+49	    BUILD_COMPROMISE = "build_compromise"
+50	    SECRET_LEAKAGE = "secret_leakage"
+51	    SUPPLY_CHAIN_ATTACK = "supply_chain_attack"
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 1734
+	Total lines skipped (#nosec): 0
+	Total potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0
+		Low: 2
+		Medium: 0
+		High: 0
+	Total issues (by confidence):
+		Undefined: 0
+		Low: 0
+		Medium: 2
+		High: 0
+Files skipped (0):
+
